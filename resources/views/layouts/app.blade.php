@@ -14,8 +14,8 @@
    <div class="container d-flex flex-wrap  pt-2 pb-2 header-up">
      
       <a href="category.html" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none header-title">
-<svg version="1.1" width='140' height='120' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900">
-  <g  style="mix-blend-mode: source-over;" transform="matrix(1,0,0,1,342.19371204718686,78.39000000000003)">
+         <svg version="1.1" width='140' height='120' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900">
+<g  style="mix-blend-mode: source-over;" transform="matrix(1,0,0,1,342.19371204718686,78.39000000000003)">
 	<g id="flower">
 		<g id="flower-2">
 			<g id="fill">
@@ -76,9 +76,6 @@
          <button type="button" class="btn header-burger fixed-top" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
             <img src="/img/arrows-fullscreen.svg" width='30' alt="">
          </button>
-         
-       
-
    </div>
  </header>
  <nav class="py-2 border-bottom header-down">
@@ -100,159 +97,8 @@
    </div>
  </nav>
 
- <main class="contatiner">
-  <section class="hero">
-   
-  
-  <div class="p-4  text-white rounded bg-dark text-center hero-wrapper d-flex justify-content-center">
-    <img class="hero-img" src="/img/icon1.svg" alt="Hero-logo" width="600" height="">
-    <div class="col-md-6 px-0">
-      <h2 class="display-4 fst-italic">Здоровье & Лекарства</h2>
-      <p class="lead my-3 hero-text"> Автор сайта имеет медицинское образование и стаж работы в сфере фармацевтики и медицины 20 лет. Информация на сайте является компиляцией многолетнего опыта и  носит ознокамительный характер. 
-        Каждый организм имеет индивидуальные особенности, поэтому любое лечение должно сопровождаться под наблюдением врача! Подпишитесь на наши инстаграмм и почтовую рассылку!<br>
-        <span class="hero-add">
-           Здоровья вам и вашим близким!
-        </span></p>
-      <div class="d-flex justify-content-center flex-row">
-        <a href="#" class="py-2"><img src="/img/instagram.svg" class="hero-icon mx-2" alt="instagramm" width="60px"></a>
-        <button class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="/img/mail.svg" class="hero-icon mx-2" alt="Mail" width="65px"></button>
-      </div>
-    </div>
-  </div>
-
-</section>
-  <section class="main-body">
-        <div class=" m-1 row g-3 mt-5 mb-5">
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-img-top image-card"> <a href="#"><img src="img/unsplash-photo-1.jpg" alt="..."></a> </div>
-                <div class="card-body"> <a href="#" class="text-uppercase text-danger fw-bold fs-6">Category</a>
-                    <h6 class="card-title text-dark mt-2">What you wants to know about hubspot?</h6>
-                    <p class="card-text">Lorem ipsum dolor sit amet,  Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet,consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..</p> 
-                    <a href="#" class="text-dark btn btn-outline-info btn-lg">Читать</a>
-                    <div class="mt-4 about d-flex justify-content-between align-items-center"> <a href=""  class="text-primary fw-bold fs-6"><span>By Prabhjot Singh</span></a> <span>On 12 Oct, 2020</span> <a href=""  class="text-primary fw-bold fs-6"><span>5 min read</span></a> </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="card">
-              <div class="card-img-top image-card"> <img src="img/unsplash-photo-2.jpg" alt="..."> </div>
-                <div class="card-body"> <span class="text-uppercase text-danger fw-bold fs-6">Category</span>
-                    <h6 class="card-title text-dark mt-2">What you wants to know about hubspot?</h6>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..</p> <a href="#" class="text-dark">Read full story...</a>
-                    <div class="mt-4 about d-flex justify-content-between align-items-center"> <span>By Prabhjot Singh</span> <span>On 12 Oct, 2020</span> <span>5 min read</span> </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="card">
-            <div class="card-img-top image-card"> <img src="img/unsplash-photo-2.jpg" alt="..."> </div>
-              <div class="card-body"> <span class="text-uppercase text-danger fw-bold fs-6">Category</span>
-                  <h6 class="card-title text-dark mt-2">What you wants to know about hubspot?</h6>
-                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..</p> <a href="#" class="text-dark">Read full story...</a>
-                  <div class="mt-4 about d-flex justify-content-between align-items-center"> <span>By Prabhjot Singh</span> <span>On 12 Oct, 2020</span> <span>5 min read</span> </div>
-              </div>
-          </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="card">
-          <div class="card-img-top image-card"> <img src="img/unsplash-photo-2.jpg" alt="..."> </div>
-            <div class="card-body"> <span class="text-uppercase text-danger fw-bold fs-6">Category</span>
-                <h6 class="card-title text-dark mt-2">What you wants to know about hubspot?</h6>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..</p> <a href="#" class="text-dark">Read full story...</a>
-                <div class="mt-4 about d-flex justify-content-between align-items-center"> <span>By Prabhjot Singh</span> <span>On 12 Oct, 2020</span> <span>5 min read</span> </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="card">
-        <div class="card-img-top image-card"> <img src="img/unsplash-photo-2.jpg" alt="..."> </div>
-          <div class="card-body"> <span class="text-uppercase text-danger fw-bold fs-6">Category</span>
-              <h6 class="card-title text-dark mt-2">What you wants to know about hubspot?</h6>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..</p> <a href="#" class="text-dark">Read full story...</a>
-              <div class="mt-4 about d-flex justify-content-between align-items-center"> <span>By Prabhjot Singh</span> <span>On 12 Oct, 2020</span> <span>5 min read</span> </div>
-          </div>
-      </div>
-  </div>
-
-        <div class="col-md-4">
-            <div class="card">
-              <div class="card-img-top image-card"> <img src="img/unsplash-photo-2.jpg" alt="..."> </div>
-                <div class="card-body"> <span class="text-uppercase text-danger fw-bold fs-6">Category</span>
-                    <h6 class="card-title text-dark mt-2">What you wants to know about hubspot?</h6>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..</p> <a href="#" class="text-dark">Read full story...</a>
-                    <div class="mt-4 about d-flex justify-content-between align-items-center"> <span>By Prabhjot Singh</span> <span>On 12 Oct, 2020</span> <span>5 min read</span> </div>
-                </div>
-            </div>
-        </div>
-    
-</div>
-
-
-  </section>
-  
-
-</main><div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-  <div class="offcanvas-header border-bottom">
-    
-     <form class="pt-1 header-form-offcanvas">
-        <input type="search" class="form-control" placeholder="Статья..." aria-label="Search">
-        <button type="submit" class="btn btn-outline-primary">Искать</button>
-        
-      </form>
-      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Закрыть"></button>
-     </div>
-     <div class="offcanvas-body">
-        <nav class="py-2 offcanvas-nav">
-         <ul class="nav flex-column">
-         <!--  <li class="nav-item"><a href="#" class="nav-link px-2 main-category-link"> Лечение & профилактика:</a></li>-->
-            <li class="nav-item"><a href="#" class="nav-link  px-2 active-nav-link">Home</a></li>
-            <li class="nav-item"><a href="#" class="nav-link  px-2">Features</a></li>
-            <li class="nav-item"><a href="#" class="nav-link  px-2">Pricing</a></li>
-            <li class="nav-item"><a href="#" class="nav-link  px-2">FAQs</a></li>
-            <li class="nav-item"><a href="#" class="nav-link  px-2">About</a></li>
-          </ul>
-         <!--  <ul class="nav flex-column">
-           <li class="nav-item"><a href="#" class="nav-link px-2 main-category-link">Упражнения:</a></li>
-            <li class="nav-item"><a href="#" class="nav-link  px-2 active-nav-link">Home</a></li>
-            <li class="nav-item"><a href="#" class="nav-link  px-2">Features</a></li>
-            <li class="nav-item"><a href="#" class="nav-link  px-2">Pricing</a></li>
-            <li class="nav-item"><a href="#" class="nav-link  px-2">FAQs</a></li>
-            <li class="nav-item"><a href="#" class="nav-link  px-2">About</a></li>
-          </ul>-->
-           
-         </nav>
-         
-     </div>
-</div>
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Спасибо за подписку!</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <form>
-      <div class="modal-body">
-        
-          <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Email</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" required>
-          </div>
-        
-      </div>
-      <div class="modal-footer">
-        
-        <button type="submit" class="btn btn-primary">Отправить</button>
-      </div>
-    </form>
-    </div>
-  </div>
-</div>
+@yield('content')
+ 
 <footer class="blog-footer">
    <p></p>
    <p>

@@ -17,15 +17,18 @@ class DatabaseSeeder extends Seeder
 
         $tags = \App\Models\Tag::factory(10)->create();
         // создаем 10 тегов
-
         $articles = \App\Models\Article::factory(20)->create();
         // создаем 20 статей тегов
         $tags_id = $tags->pluck('id');
         // сохраняем все id все тегов в массив
+        $categories = \App\Models\Category::factory(10)->create();
+        $cat_id = $categories->pluck('id');
         // https://laravel.com/docs/8.x/collections#method-pluck
 
-        $articles->each(function ($article) use ($tags_id) { // проходим по созданным статьям
+        $articles->each(function ($article) use ($tags_id,$cat_id) { // проходим по созданным статьям
             $article->tags()->attach($tags_id->random(3)); // заполняем каждое поле в таблице article 3мя ранжомными тегами
+            $article->categories()->attach($cat_id->random(3));
+
             \App\Models\Comment::factory(3)->create([
                 'article_id' => $article->id
             ]); // для каждой статьи создаем 3 коммента

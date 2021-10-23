@@ -27,4 +27,15 @@ class Article extends Model
         return $this->belongsToMany(Tag::class);
         // Имеет много tags
     }
+    public function categories() {
+        return $this->belongsToMany(Category::class);
+
+    }
+
+    public function scopeLastLimit($query,$num) {
+        return $query->with('tags','categories')->orderBy('created_at','desc')->take($num)->get();
+     }
+     public function createdAtForHumans(){
+        return $this->created_at->diffForHumans();
+    }
 }
