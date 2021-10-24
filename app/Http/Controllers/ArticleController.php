@@ -31,4 +31,5 @@ class ArticleController extends Controller
         $searchingCategoryLabel = $category->label;
         return view('app.article.byCategory',compact('articles','searchingCategoryLabel'));
     }
+    
 }

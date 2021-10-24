@@ -1,8 +1,11 @@
 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
    <div class="offcanvas-header border-bottom">
      
-      <form class="pt-1 header-form-offcanvas">
-         <input type="search" class="form-control" placeholder="Статья..." aria-label="Search">
+      <form class="pt-1 header-form-offcanvas" method="get" 
+      action="{{ route('search') }}">
+      {{ csrf_field() }}
+         <input required type="search" name='search'
+         class="form-control" placeholder="Статья..." aria-label="Search">
          <button type="submit" class="btn btn-outline-primary">Искать</button>
          
        </form>

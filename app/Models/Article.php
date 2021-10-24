@@ -63,4 +63,9 @@ class Article extends Model
         ->where('slug',$slug)
         ->firstOrFail();
     }
+    public function scopeFindBySearch($query,$search) {
+        return $query->with('tags','categories','state')
+        ->where('title','like',"%{$search}%")
+        ->paginate(10);
+    }
 }

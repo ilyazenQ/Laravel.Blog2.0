@@ -40,6 +40,9 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('app.article.byTag',function($view){
             $view->with('allTags', Tag::get());
         });
-        
+        view()->composer('app.search.searchResult',function($view){
+            $view->with('allTags', Tag::get());
+        });
+
 }
 }

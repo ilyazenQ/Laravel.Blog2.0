@@ -69,8 +69,10 @@
          </svg>
          <span class="fs-4">Здоровье & Лекарства</span>
        </a>
-       <form class="pt-1 header-form">
-         <input type="search" class="form-control" placeholder="Статья..." aria-label="Search">
+       <form method="get" class="pt-1 header-form" action="{{ route('search') }}">
+			
+         <input type="search" required class="form-control" 
+			placeholder="Статья..." name='search' aria-label="Search">
          <button type="submit" class="btn btn-outline-primary">Искать</button>
        </form>
          <button type="button" class="btn header-burger fixed-top" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">

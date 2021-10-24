@@ -19,3 +19,5 @@ Route::get('/articles', [\App\Http\Controllers\ArticleController::class,'index']
 Route::get('/articles/{slug}', [App\Http\Controllers\ArticleController::class, 'show'])->name('article.show');
 Route::get('/articles/tag/{tag}', [App\Http\Controllers\ArticleController::class, 'allByTag'])->name('article.tag');
 Route::get('/articles/category/{category}', [App\Http\Controllers\ArticleController::class, 'allByCategory'])->name('article.category');
+
+Route::get('/search', [\App\Http\Controllers\SearchController::class,'search'])->name('search');
