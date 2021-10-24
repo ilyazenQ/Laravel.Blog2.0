@@ -2,10 +2,16 @@
 @section('content')
 <main class="contatiner">
    <section class="category-main-header container">
-      <h1 class="display-4 fw-normal">Category title</h1>
+      <h1 class="display-4 fw-normal">
+         {{$searchingCategoryLabel}}
+      </h1>
       <div class="tagcloud06">
          <ul>
-            <li><a href="#"><span>tag</span></a></li>
+      @foreach($allTags as $tag)
+            <li><a href="{{route('article.tag',$tag->id)}}">
+               <span>{{ $tag->label}}</span>
+            </a></li>
+      @endforeach
          </ul>
       </div>
    </section>

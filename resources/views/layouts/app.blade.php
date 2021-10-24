@@ -81,18 +81,16 @@
  <nav class="py-2 border-bottom header-down">
    <div class="container d-flex flex-wrap">
      <ul class="nav me-auto">
-      <!--<li class="nav-item"><a href="#" class="nav-link px-2 main-category-link">Лечение & профилактика:</a></li>-->
-       <li class="nav-item"><a href="#" class="nav-link  px-2">Home</a></li>
-       <li class="nav-item"><a href="#" class="nav-link  px-2">Features</a></li>
-       <li class="nav-item"><a href="#" class="nav-link  px-2">Pricing</a></li>
-       <li class="nav-item"><a href="#" class="nav-link  px-2">FAQs</a></li>
-       <li class="nav-item"><a href="#" class="nav-link  px-2">About</a></li>
-		 <li class="nav-item"><a href="#" class="nav-link  px-2">Pricing</a></li>
-       <li class="nav-item"><a href="#" class="nav-link  px-2">FAQs</a></li>
-       <li class="nav-item"><a href="#" class="nav-link  px-2">About</a></li>
-		 <li class="nav-item"><a href="#" class="nav-link  px-2">Pricing</a></li>
-       <li class="nav-item"><a href="#" class="nav-link  px-2">FAQs</a></li>
-       <li class="nav-item"><a href="#" class="nav-link  px-2">About</a></li>
+		@foreach($allCategories as $category)
+       <li class="nav-item">
+			 <a href="{{route('article.category',$category->id)}}" class="nav-link  px-2 
+				@if(isSearchingCategory())
+					{{activeCategoryLink($searchingCategoryLabel, $category->label)}}
+				@endif
+				">
+			 {{ $category->label}}</a>
+			</li>
+		 @endforeach
      </ul>
    </div>
  </nav>

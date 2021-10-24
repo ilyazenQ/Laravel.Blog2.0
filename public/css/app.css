@@ -11285,6 +11285,10 @@ textarea.form-control-lg {
   justify-content: space-between;
 }
 
+.nav-link {
+  z-index: 3;
+}
+
 .header-burger {
   padding: 0;
   margin: 0;
@@ -11299,6 +11303,7 @@ textarea.form-control-lg {
   top: -71%;
   left: -35%;
   position: absolute;
+  z-index: -1;
 }
 
 .header-form, .header-form-offcanvas {
@@ -11518,6 +11523,10 @@ textarea.form-control-lg {
   background-color: #3498db;
   border-radius: 50%;
   transition: 0.2s;
+}
+
+.tagcloud06 ul li .active {
+  background-color: orange;
 }
 
 .tagcloud06 ul li a::after {

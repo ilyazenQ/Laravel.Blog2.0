@@ -9,6 +9,10 @@ use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
+    public function __construct()
+    {
+       // var_dump(request());
+    }
     public function index() {
         $articles = Article::allPaginate(10);
         return view('app.article.index',compact('articles'));
@@ -19,10 +23,12 @@ class ArticleController extends Controller
     }
     public function allByTag(Tag $tag) {
         $articles = $tag->articles()->findByTag();
-        return view('app.article.byTag',compact('articles'));
+        $searchingTagLabel = $tag->label;
+        return view('app.article.byTag',compact('articles','searchingTagLabel'));
     }
     public function allByCategory(Category $category) {
         $articles = $category->articles()->findByCategory();
-        return view('app.article.byCategory',compact('articles'));
+        $searchingCategoryLabel = $category->label;
+        return view('app.article.byCategory',compact('articles','searchingCategoryLabel'));
     }
 }

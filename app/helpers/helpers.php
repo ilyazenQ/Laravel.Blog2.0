@@ -1,10 +1,10 @@
 <?php
-if (! function_exists('activeMainLink')) {
-    function activeMainLink() {
-        if(request()->is('/')) {
-            return 'menu-link__active';
+if (! function_exists('isSearchingCategory')) {
+    function isSearchingCategory() {
+        if(request()->is('articles/category/*')) {
+            return true;
         }
-        return '';
+        return false;
     }
 }
 
@@ -22,3 +22,24 @@ if (! function_exists('cratedAtWithoutHours')) {
        return mb_strimwidth($created_at, 0, 10);
    }
 }
+
+if (! function_exists('activeTagLink')) {
+    function activeTagLink($pageTag, $currentTag) {
+        
+        if($pageTag === $currentTag) {
+            return 'active';
+        }
+        
+    }
+    
+ }
+ if (! function_exists('activeCategoryLink')) {
+    function activeCategoryLink($pageCategory, $currentCategory) {
+        
+        if($pageCategory === $currentCategory) {
+            return 'active-nav-link';
+        }
+        
+    }
+    
+ }

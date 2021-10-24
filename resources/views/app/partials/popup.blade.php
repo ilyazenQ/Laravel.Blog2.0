@@ -11,12 +11,17 @@
       <div class="offcanvas-body">
          <nav class="py-2 offcanvas-nav">
           <ul class="nav flex-column">
+            @foreach($allCategories as $category)
           <!--  <li class="nav-item"><a href="#" class="nav-link px-2 main-category-link"> Лечение & профилактика:</a></li>-->
-             <li class="nav-item"><a href="#" class="nav-link  px-2 active-nav-link">Home</a></li>
-             <li class="nav-item"><a href="#" class="nav-link  px-2">Features</a></li>
-             <li class="nav-item"><a href="#" class="nav-link  px-2">Pricing</a></li>
-             <li class="nav-item"><a href="#" class="nav-link  px-2">FAQs</a></li>
-             <li class="nav-item"><a href="#" class="nav-link  px-2">About</a></li>
+             <li class="nav-item">
+              <a href="{{route('article.category',$category->id)}}" class="nav-link  px-2
+                @if(isSearchingCategory())
+					        {{activeCategoryLink($searchingCategoryLabel, $category->label)}}
+			        	@endif
+                ">
+                {{ $category->label}}</a>
+               </li>
+              @endforeach
            </ul>
           <!--  <ul class="nav flex-column">
             <li class="nav-item"><a href="#" class="nav-link px-2 main-category-link">Упражнения:</a></li>
