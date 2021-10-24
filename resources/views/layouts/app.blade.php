@@ -13,7 +13,7 @@
 <header class="pt-1 border-bottom">
    <div class="container d-flex flex-wrap  pt-2 pb-2 header-up">
      
-      <a href="category.html" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none header-title">
+      <a href="{{ route('home') }}" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none header-title">
          <svg version="1.1" width='140' height='120' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900">
 <g  style="mix-blend-mode: source-over;" transform="matrix(1,0,0,1,342.19371204718686,78.39000000000003)">
 	<g id="flower">
@@ -82,7 +82,7 @@
    <div class="container d-flex flex-wrap">
      <ul class="nav me-auto">
       <!--<li class="nav-item"><a href="#" class="nav-link px-2 main-category-link">Лечение & профилактика:</a></li>-->
-       <li class="nav-item"><a href="#" class="nav-link  px-2 active-nav-link">Home</a></li>
+       <li class="nav-item"><a href="#" class="nav-link  px-2">Home</a></li>
        <li class="nav-item"><a href="#" class="nav-link  px-2">Features</a></li>
        <li class="nav-item"><a href="#" class="nav-link  px-2">Pricing</a></li>
        <li class="nav-item"><a href="#" class="nav-link  px-2">FAQs</a></li>

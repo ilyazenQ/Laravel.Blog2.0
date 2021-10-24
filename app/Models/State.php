@@ -12,4 +12,7 @@ class State extends Model
     protected $fillable = ['likes',
         'views',
         'article_id'];
+    public function scopeActive($query) {
+        return $query->where('production', 1);
+    }
 }

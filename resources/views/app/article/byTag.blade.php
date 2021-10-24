@@ -2,7 +2,14 @@
 @section('content')
 <main class="contatiner">
 
-   @include('app.partials.hero')
+   <section class="category-main-header container">
+      <h1 class="display-4 fw-normal">Category title</h1>
+      <div class="tagcloud06">
+         <ul>
+            <li><a href="#"><span>tag</span></a></li>
+         </ul>
+      </div>
+   </section>
 
    <section class="main-body">
       

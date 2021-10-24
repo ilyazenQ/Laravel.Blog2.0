@@ -33,9 +33,34 @@ class Article extends Model
     }
 
     public function scopeLastLimit($query,$num) {
-        return $query->with('tags','categories')->orderBy('created_at','desc')->take($num)->get();
+        return $query->with('tags','categories','state')
+        ->orderBy('created_at','desc')
+        ->take($num)
+        ->get();
      }
+     
      public function createdAtForHumans(){
         return $this->created_at->diffForHumans();
+    }
+
+    public function scopeAllPaginate($query,$numbers) {
+        return $query->with('tags','categories','state')
+        ->orderBy('created_at','desc')
+        ->paginate($numbers);
+    }
+    public function scopeFindByTag($query) {
+        return $query->with('tags','categories','state')
+        ->orderBy('created_at','desc')
+        ->paginate(10);
+    }
+    public function scopeFindByCategory($query) {
+        return $query->with('tags','categories','state')
+        ->orderBy('created_at','desc')
+        ->paginate(10);
+    }
+    public function scopeFindBySlug($query,$slug) {
+        return $query->with('tags','categories','state')
+        ->where('slug',$slug)
+        ->firstOrFail();
     }
 }

@@ -12,18 +12,20 @@
          <div class="col-md-4">
              <div class="card">
                  <div class="card-img-top image-card"> 
-                    <a href="{{ route('article.show',$article->slug) }}"><img src="{{$article->img}}" alt="..."></a> </div>
+                    <a href="#"><img src="{{$article->img}}" alt="..."></a> </div>
                     
                  <div class="card-body"> 
                   @foreach ($article->categories as $category)
-                    <a href="{{route('article.category',$category->id)}}" class="text-uppercase text-danger fw-bold fs-6 article-category-link">{{$category->label}}
+                    <a href="{{route('article.category',$category->id)}}" 
+                     class="text-uppercase text-danger fw-bold fs-6 article-category-link">
+                     {{$category->label}}
                   </a>
                   @endforeach
                      <h6 class="card-title text-dark mt-2">{{$article->title}}</h6>
                      <p class="card-text">
                         {{$article->preview}}
                        </p> 
-                     <a href="{{ route('article.show',$article->slug) }}" class="text-dark btn btn-outline-info btn-lg">Читать</a>
+                     <a href="#" class="text-dark btn btn-outline-info btn-lg">Читать</a>
                      <div class="mt-4 about d-flex justify-content-between align-items-center"> 
                         @foreach ($article->tags as $tag)
                         <a href="{{route('article.tag',$tag->id)}}"  class="text-primary fw-bold fs-6">
