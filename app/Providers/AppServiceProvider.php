@@ -43,6 +43,11 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('app.search.searchResult',function($view){
             $view->with('allTags', Tag::get());
         });
+        view()->composer('app.partials.admin.sidebar',function($view){
+            $view->with('allCategories', Category::get());
+            $view->with('allTags', Tag::get());
+        });
+       
 
 }
 }
