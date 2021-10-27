@@ -24,7 +24,9 @@ class Article extends Model
         // Имеет одно состояние
     }
     public function tags() {
-        return $this->belongsToMany(Tag::class);
+        return $this->belongsToMany(
+            Tag::class
+        );
         // Имеет много tags
     }
     public function categories() {
@@ -73,5 +75,35 @@ class Article extends Model
     }
     public function isRecommend() {
         return $this->state->recommend === 1? true:false;
+    }
+    public function setTags($tags) {
+        if($tags == null) {
+            return;
+        }
+        $ids = $this->getTagsIdsFromArray($tags);
+        $this->tags()->sync($ids);
+    }
+    public function getTagsIdsFromArray($tags) {
+        $ids = [];
+        foreach ($tags as $label) {
+            $tag = Tag::where('label',$label)->firstOrFail();
+            $ids[] = $tag->id;
+        }
+        return $ids;
+    }
+    public function setCategories($categories) {
+        if($categories == null) {
+            return;
+        }
+        $ids = $this->getCategoriesIdsFromArray($categories);
+        $this->categories()->sync($ids);
+    }
+    public function getCategoriesIdsFromArray($categories) {
+        $ids = [];
+        foreach ($categories as $label) {
+            $category = Category::where('label',$label)->firstOrFail();
+            $ids[] = $category->id;
+        }
+        return $ids;
     }
 }

@@ -70,8 +70,11 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        //
+    {   
+        $article = Article::find($id);
+        $article->setTags($request->get('tags'));
+        $article->setCategories($request->get('categories'));
+        //dd($request->get('tags'));
     }
 
     /**

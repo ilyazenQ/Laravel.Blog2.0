@@ -13,7 +13,9 @@
            
            <div class="col">
              <h4 class="mb-3">{{$article->title}}</h4>
-             <form novalidate>
+             <form method="POST" action="{{ route('post.update', $article->id)}}" enctype="multipart/form-data">
+              @csrf
+              @method('PUT')
                <div class="row g-3">
                  <div>
                    <label for="title" class="form-label">Title</label>
@@ -28,7 +30,7 @@
                  <div class="col-md-5">
                   <label for="category" class="form-label">Категории</label>
                   <select class="form-select multiple" multiple  
-                  aria-label="multiple" name="categories"
+                  aria-label="multiple" name="categories[]"
                    id="category" required>
                    @foreach($allCategories as $category)
                    
@@ -42,7 +44,7 @@
                 <div class="col-md-5">
                   <label for="tag" class="form-label">Теги</label>
                   <select class="form-select multiple" multiple  
-                  aria-label="multiple" name="tags"
+                  aria-label="multiple" name="tags[]"
                    id="tag" required>
                    @foreach($allTags as $tag)
 
