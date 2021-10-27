@@ -30,5 +30,6 @@ Route::group(['prefix' => 'admin',
    Route::get('/', [\App\Http\Controllers\AdminController::class,'index'])->name('admin.index');
    Route::resource('/tag', \App\Http\Controllers\TagController::class);
    Route::resource('/category', \App\Http\Controllers\CategoryController::class);
+   Route::resource('/post', \App\Http\Controllers\PostController::class);
 
 });

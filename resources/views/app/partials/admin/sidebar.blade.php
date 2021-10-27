@@ -31,7 +31,9 @@
        @foreach($allCategories as $category)
 
        <li class="nav-item">
-         <form method="post" action="{{ route('category.destroy', $category->id)}}" class="nav-link  d-flex flex-row">
+         <form method="post" 
+         action="{{ route('category.destroy', $category->id)}}" 
+         class="nav-link  d-flex flex-row">
            @csrf
            @method('DELETE')
             <span data-feather="file"></span>

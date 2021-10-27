@@ -11,7 +11,9 @@ class State extends Model
     public $timestamps = false;
     protected $fillable = ['likes',
         'views',
-        'article_id'];
+        'article_id',
+    'production',
+'recommend'];
     public function scopeActive($query) {
         return $query->where('production', 1);
     }

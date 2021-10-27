@@ -47,6 +47,10 @@ class AppServiceProvider extends ServiceProvider
             $view->with('allCategories', Category::get());
             $view->with('allTags', Tag::get());
         });
+        view()->composer('app.admin.post-edit',function($view){
+            $view->with('allCategories', Category::get());
+            $view->with('allTags', Tag::get());
+        });
        
 
 }

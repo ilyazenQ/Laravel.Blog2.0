@@ -68,4 +68,10 @@ class Article extends Model
         ->where('title','like',"%{$search}%")
         ->paginate(10);
     }
+    public function isProduction() {
+        return $this->state->production === 1? true:false;
+    }
+    public function isRecommend() {
+        return $this->state->recommend === 1? true:false;
+    }
 }

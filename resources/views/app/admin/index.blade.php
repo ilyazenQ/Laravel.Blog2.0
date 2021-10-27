@@ -36,7 +36,7 @@
                <td>{{$article->created_at}}</td>
                <td>
                   <button type="button" class="btn btn-outline-danger">X</button>
-                  <button type="button" class="btn btn-outline-primary">Р</button>
+                  <a href="{{ route('post.show', $article->slug) }}" class="btn btn-outline-primary">Р</a>
                   <button type="button" class="btn btn-outline-success">П</button>
                </td>
              </tr>

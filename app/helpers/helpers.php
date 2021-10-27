@@ -43,3 +43,27 @@ if (! function_exists('activeTagLink')) {
     }
     
  }
+ if (! function_exists('getActiveLabels')) { 
+    function getActiveLabels($activeCollection) {
+        $activeLabelArray = [];
+        foreach($activeCollection->toArray() as $item) {
+            $activeLabelArray[] = $item['label'];
+        }
+        return $activeLabelArray;
+    }
+ }
+
+ if (! function_exists('selectIfActive')) {
+    function selectIfActive($activeCollection,$currentLabel) {
+        $activeLabelArray = getActiveLabels($activeCollection);
+
+       if (in_array($currentLabel,$activeLabelArray)) {
+          return 'selected';
+        } 
+
+        }
+   
+    }
+    
+ 
+
