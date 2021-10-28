@@ -7,7 +7,7 @@
  
      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       
-       <h2>Посты</h2>
+       <h2>Посты </h2> <a href="{{route('post.create')}}" class="btn btn-outline-success">Новый пост</a>
        <div class="table-responsive">
          <table class="table table-striped table-sm">
            <thead>
@@ -25,8 +25,9 @@
 
              <tr>
                <td>{{$article->id}}</td>
-               <td><a href="{{ route('article.show',$article->slug) }}" class="text-dark">{{$article->title}}</a></td>
-               <td><img src="{{$article->img}}" alt="Превью" width="80" height="80">
+               <td><p><a href="{{ route('post.show', $article->slug) }}" class="text-dark">{{$article->title}}</a></p><a href="{{ route('post.show', $article->slug) }}" class="btn btn-outline-primary">Р</a>
+               </td>
+               <td><a href="{{ route('article.show',$article->slug) }}"><img src="{{$article->img}}" alt="Превью" width="80" height="80"></a>
                </td>
                <td>
                @foreach ($article->categories as $category)
@@ -35,8 +36,12 @@
                </td>
                <td>{{$article->created_at}}</td>
                <td>
-                  <button type="button" class="btn btn-outline-danger">X</button>
-                  <a href="{{ route('post.show', $article->slug) }}" class="btn btn-outline-primary">Р</a>
+                <form method="post" class="inline-block"
+                action="{{ route('post.destroy', $article->id)}}">
+                  @csrf
+                  @method('DELETE')
+                  <button type="submit" class="btn btn-outline-danger">X</button>
+                </form>
                   <button type="button" class="btn btn-outline-success">П</button>
                </td>
              </tr>

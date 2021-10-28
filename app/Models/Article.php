@@ -5,10 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
+use Cviebrock\EloquentSluggable\Sluggable;
 
 class Article extends Model
 {
     use HasFactory;
+    use Sluggable;
+
     protected $fillable = [
         'title',
         'preview',
@@ -82,6 +85,20 @@ class Article extends Model
         $ids = $this->getTagsIdsFromArray($tags);
         $this->tags()->sync($ids);
     }
+    public function setNewTags($tags) {
+        if($tags == null) {
+            return;
+        }
+        $ids = $this->getTagsIdsFromArray($tags);
+        $this->tags()->attach($ids);
+    }
+    public function setNewCategories($categories) {
+        if($categories == null) {
+            return;
+        }
+        $ids = $this->getCategoriesIdsFromArray($categories);
+        $this->categories()->attach($ids);
+    }
     public function getTagsIdsFromArray($tags) {
         $ids = [];
         foreach ($tags as $label) {
@@ -111,17 +128,31 @@ class Article extends Model
     }
     public function setDraft() {
         //dd($this->state->production);
+        
         $this->state->update(['production' => 0]);
         $this->save();
+        
         
     }
     public function setPublic(){
         $this->state->update(['production' => 1]);
         $this->save();
     }
+    public function generateNewState() {
+        
+            $state = new State([
+                'likes'=>0,
+                'views'=>0,
+                'article_id'=>$this->id,
+                'recommend'=>0,
+                'production'=>0,
+            ]);
+            $state->save();
+        
+    }
     public function setProductionState($field) {
         $field = intval($field);
-        
+       
         if($field === 0) {
             $this->setDraft();
         } else {
@@ -153,7 +184,7 @@ class Article extends Model
         if($image == null) {
             return;
         }
-       $this->removeImage();
+       //$this->removeImage();
         //dd($image->hashName());
     
        // $filename = $image->hashName();
@@ -166,5 +197,23 @@ class Article extends Model
         if($this->img != null) {
             Storage::delete('/storage/uploads/'.$this->img);
         }
+    }
+    public static function add($fields) {
+        $article = new Article;
+        $state = new State;
+        $tag = new Tag;
+        $categories = new Category;
+        $article->fill($fields);
+        $article->save();
+        //dd($article->id);
+        return $article;
+    }
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'title'
+            ]
+        ];
     }
 }

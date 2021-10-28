@@ -35,7 +35,7 @@
            </ul>
         </div>
         
-        {{$article->body}}
+        {!! $article->body !!}
          
  
      </div>

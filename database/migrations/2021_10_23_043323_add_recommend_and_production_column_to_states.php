@@ -27,7 +27,8 @@ class AddRecommendAndProductionColumnToStates extends Migration
     public function down()
     {
         Schema::table('states', function (Blueprint $table) {
-            //
+            $table->dropColumn("recommend");
+            $table->dropColumn("production");
         });
     }
 }

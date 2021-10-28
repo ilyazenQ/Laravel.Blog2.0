@@ -19,7 +19,7 @@ class CreateArticlesTable extends Migration
             $table->string('slug')->unique();
             $table->text('preview');
             $table->text('body');
-            $table->text('img');
+            $table->text('img')->nullable();
             $table->timestamps(); // два поля created_at updated_at время создания/изменения
         });
     }

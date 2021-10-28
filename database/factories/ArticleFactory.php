@@ -23,7 +23,7 @@ class ArticleFactory extends Factory
     public function definition()
     {
         $title = $this->faker->sentence(6, true); // фраза из 6 слов
-        $slug =  Str::substr(Str::lower(preg_replace('/\s+/', '-', $title )), 0, -1);
+        //$slug =  Str::substr(Str::lower(preg_replace('/\s+/', '-', $title )), 0, -1);
         //на основании title создаем slug
         // "Hello wold hello wold hello wold."
         // "hello-wold-hello-wold-hello-wold"
@@ -34,7 +34,7 @@ class ArticleFactory extends Factory
             'title' => $title,
             'body' => $this->faker->paragraph(100, true),//рандомный текст
             'preview' => $this->faker->paragraph(2, true),//рандомный текст
-            'slug' => $slug,
+           // 'slug' => $slug,
             'img' => 'https://via.placeholder.com/600/5F113B/FFFFFF/?text=LARAVEL:8.*',
             'created_at' => $this->faker->dateTimeBetween('-1 years'),
 //            'published_at' => Carbon::now()

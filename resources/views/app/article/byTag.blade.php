@@ -7,8 +7,10 @@
       <div class="tagcloud06">
          <ul>
       @foreach($allTags as $tag)
-            <li><a href="{{route('article.tag',$tag->id)}}" class="{{activeTagLink($searchingTagLabel, $tag->label)}}">
-               <span class="{{activeTagLink($searchingTagLabel, $tag->label)}}">{{ $tag->label}}</span>
+            <li><a href="{{route('article.tag',$tag->id)}}"
+                class="{{activeTagLink($searchingTagLabel, $tag->label)}}">
+               <span class="{{activeTagLink($searchingTagLabel, $tag->label)}}">
+                  {{ $tag->label}}</span>
             </a></li>
       @endforeach
          </ul>
@@ -23,8 +25,8 @@
          <div class="col-md-4">
              <div class="card">
                  <div class="card-img-top image-card"> 
-                    <a href="{{ route('article.show',$article->slug) }}"><img src="{{$article->img}}" alt="..."></a> </div>
-                    
+                    <a href="{{ route('article.show',$article->slug) }}">
+                     <img src="{{ asset($article->img) }}" alt="..."></a> </div>
                  <div class="card-body"> 
                   @foreach ($article->categories as $category)
                     <a href="{{route('article.category',$category->id)}}" class="text-uppercase text-danger fw-bold fs-6 article-category-link">{{$category->label}}

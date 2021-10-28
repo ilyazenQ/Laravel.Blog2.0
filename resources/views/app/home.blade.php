@@ -13,7 +13,7 @@
              <div class="card">
                  <div class="card-img-top image-card"> 
                     <a href="{{ route('article.show',$article->slug) }}">
-                     <img src="{{$article->img}}" alt="..."></a>
+                     <img src="{{ asset($article->img) }}" alt="..."></a>
                    </div>
                     
                  <div class="card-body"> 

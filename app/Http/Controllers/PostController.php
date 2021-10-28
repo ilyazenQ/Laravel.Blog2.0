@@ -24,7 +24,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('app.admin.create');
     }
 
     /**
@@ -35,7 +35,15 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request->all());
+        $article = Article::add($request->all());
+        $article->setNewTags($request->get('tags'));
+        $article->setNewCategories($request->get('categories'));
+        $article->generateNewState();
+        $article->setProductionState($request->get('production'));
+        $article->setRecommendState($request->get('recommend'));
+        $article->uploadImage($request->file('img'));
+        return redirect()->route('admin.index');;
     }
 
     /**
@@ -73,12 +81,12 @@ class PostController extends Controller
     {   
         $article = Article::find($id);
         $article->edit($request->all());
-        $article->uploadImage($request->file('img'));
         $article->setProductionState($request->get('production'));
         $article->setRecommendState($request->get('recommend'));
         $article->uploadImage($request->file('img'));
         $article->setTags($request->get('tags'));
         $article->setCategories($request->get('categories'));
+        return redirect()->route('admin.index');;
     }
 
     /**
@@ -89,7 +97,8 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Article::find($id)->remove();
+        return redirect()->route('admin.index');
     }
 
 }
