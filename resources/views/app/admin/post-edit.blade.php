@@ -23,7 +23,7 @@
                    value="{{$article->title}}" required>
                  </div>
                  <div class="form-group">
-                  <img src="{{$article->img}}" alt="" class="img-responsive" width="200">
+                  <img src="{{ asset($article->img) }}" alt="" class="img-responsive" width="200">
                   <input type="file" id="exampleInputFile" name="img">
                 </div>
                 
@@ -100,10 +100,10 @@
                <div class="my-3">
                 <div class="form-check">
                   <input class="form-check-input"
-                   name="recommend" type="checkbox" value=""
+                   name="recommend" type="checkbox" value="1"
                    @if($article->isRecommend()) 
                    checked
-                 @endif 
+                   @endif 
                    id="flexCheckDefault">
                   <label class="form-check-label"
                     for="flexCheckDefault">

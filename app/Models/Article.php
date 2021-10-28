@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Article extends Model
 {
@@ -125,6 +126,45 @@ class Article extends Model
             $this->setDraft();
         } else {
             $this->setPublic();
+        }
+    }
+    public function setNormal() {
+        $this->state->update(['recommend' => 0]);
+        $this->save();
+        
+    }
+    public function setRecommend(){
+        $this->state->update(['recommend' => 1]);
+        $this->save();
+    }
+    public function setRecommendState($field) {
+        if(is_null($field)) {
+            $this->setNormal();
+        } else {
+            $this->setRecommend();
+        }
+    }
+    public function remove(){
+        // удалить картинку
+        $this->removeImage();
+        $this->delete();
+    }
+    public function uploadImage($image) {
+        if($image == null) {
+            return;
+        }
+       $this->removeImage();
+        //dd($image->hashName());
+    
+       // $filename = $image->hashName();
+        $path = $image->store('uploads','public');
+        //dd($path);
+        $this->img = 'storage/'.$path;
+        $this->save();
+    }
+    public function removeImage() {
+        if($this->img != null) {
+            Storage::delete('/storage/uploads/'.$this->img);
         }
     }
 }

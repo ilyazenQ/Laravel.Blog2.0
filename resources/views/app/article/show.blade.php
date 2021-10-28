@@ -3,7 +3,8 @@
 <main class="container">
       
     
-   <div class="p-5  bg-light rounded-3 card-cover" style="background-image: url('{{$article->img}}');">
+   <div class="p-5  bg-light rounded-3 card-cover" 
+   style="background-image: url('{{ asset($article->img) }}');">
      <div class="container-fluid py-2 text-white text-shadow-1">
        <h1 class="display-5 fw-bold">{{$article->title}}</h1>
        <p class="col-md-8 fs-4">
