@@ -12,9 +12,8 @@ class Article extends Model
         'title',
         'preview',
         'body',
-        'img',
-        'slug'
     ];
+
     public function comments() {
         return $this->hasMany(Comment::class);
         // Article может иметь много comment
@@ -33,7 +32,6 @@ class Article extends Model
         return $this->belongsToMany(Category::class);
 
     }
-
     public function scopeLastLimit($query,$num) {
         return $query->with('tags','categories','state')
         ->orderBy('created_at','desc')
@@ -105,5 +103,28 @@ class Article extends Model
             $ids[] = $category->id;
         }
         return $ids;
+    }
+    public function edit($fields) {
+        $this->fill($fields);
+        $this->save();
+    }
+    public function setDraft() {
+        //dd($this->state->production);
+        $this->state->update(['production' => 0]);
+        $this->save();
+        
+    }
+    public function setPublic(){
+        $this->state->update(['production' => 1]);
+        $this->save();
+    }
+    public function setProductionState($field) {
+        $field = intval($field);
+        
+        if($field === 0) {
+            $this->setDraft();
+        } else {
+            $this->setPublic();
+        }
     }
 }

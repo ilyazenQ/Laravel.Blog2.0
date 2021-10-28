@@ -80,7 +80,7 @@
      
                <div class="my-3">
                  <div class="form-check">
-                   <input id="credit" name="production" type="radio" class="form-check-input" 
+                   <input id="credit" name="production" value="0" type="radio" class="form-check-input" 
                   @if(!$article->isProduction()) 
                   checked
                   @endif 
@@ -88,7 +88,7 @@
                    <label class="form-check-label" for="credit">Черновик</label>
                  </div>
                  <div class="form-check">
-                   <input id="debit" name="production" type="radio" class="form-check-input" 
+                   <input id="debit" name="production" value="1" type="radio" class="form-check-input" 
                    @if($article->isProduction()) 
                    checked
                    @endif 
