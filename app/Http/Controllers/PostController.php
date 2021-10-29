@@ -43,7 +43,7 @@ class PostController extends Controller
         $article->setProductionState($request->get('production'));
         $article->setRecommendState($request->get('recommend'));
         $article->uploadImage($request->file('img'));
-        return redirect()->route('admin.index');;
+        return redirect()->route('admin.index');
     }
 
     /**

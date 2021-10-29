@@ -7,9 +7,11 @@
 </head>
 <body>
 
-   <form action="">
-      <input type="password" name="" id="" required>
-      <input type="password" required>
+   <form action="{{ route("login") }}" method="POST">
+      @csrf
+      <input type="text" name="name" required>
+      <input type="password" name="password">
+      <input type="text" name="email">
       <button type="submit">x</button>
    </form>
 

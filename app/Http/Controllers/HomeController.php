@@ -10,7 +10,7 @@ class HomeController extends Controller
     public function index() {
         // $articles = Article::with('state','tags')->orderBy('created_at','desc')->take(6)->get();
           // $articles = Article::lastLimit(6); // перенесли логику в модель (scopeLastLimit)
-          $articles = Article::allPaginate(10);
+          $articles = Article::productionPaginate(10);
           return view('app.home',compact('articles'));
        }
 }

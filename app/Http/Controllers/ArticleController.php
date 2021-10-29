@@ -14,7 +14,7 @@ class ArticleController extends Controller
        // var_dump(request());
     }
     public function index() {
-        $articles = Article::allPaginate(10);
+        $articles = Article::productionPaginate(10);
         return view('app.article.index',compact('articles'));
     }
     public function show($slug) {

@@ -53,13 +53,21 @@ class Article extends Model
         ->orderBy('created_at','desc')
         ->paginate($numbers);
     }
+    public function scopeProductionPaginate($query,$numbers) {
+        return $query->with('tags','categories','state')
+        ->where('status',1)
+        ->orderBy('created_at','desc')
+        ->paginate($numbers);
+    }
     public function scopeFindByTag($query) {
         return $query->with('tags','categories','state')
+        ->where('status',1)
         ->orderBy('created_at','desc')
         ->paginate(10);
     }
     public function scopeFindByCategory($query) {
         return $query->with('tags','categories','state')
+        ->where('status',1)
         ->orderBy('created_at','desc')
         ->paginate(10);
     }
@@ -71,12 +79,14 @@ class Article extends Model
     public function scopeFindBySearch($query,$search) {
         return $query->with('tags','categories','state')
         ->where('title','like',"%{$search}%")
+        ->where('status',1)
         ->paginate(10);
     }
     public function findRecommend($num) {
         return DB::table('articles')
         ->join('states','articles.id','=','states.article_id')
        ->where('recommend','=',1)
+       ->where('status',1)
         ->select('articles.title', 'articles.id', 'articles.preview','articles.slug')
        ->take($num)
        ->get();
@@ -138,13 +148,14 @@ class Article extends Model
     }
     public function setDraft() {
         //dd($this->state->production);
-        
+        $this->status = 0;
         $this->state->update(['production' => 0]);
         $this->save();
         
         
     }
     public function setPublic(){
+        $this->status = 1;
         $this->state->update(['production' => 1]);
         $this->save();
     }

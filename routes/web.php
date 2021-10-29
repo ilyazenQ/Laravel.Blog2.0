@@ -22,14 +22,16 @@ Route::get('/articles/category/{category}', [App\Http\Controllers\ArticleControl
 
 Route::get('/search', [\App\Http\Controllers\SearchController::class,'search'])->name('search');
 
-Route::get('/admin', [\App\Http\Controllers\AdminController::class,'index'])->name('admin.index');
-Route::post('/admin/', [\App\Http\Controllers\AdminController::class,'index'])->name('admin.index');
+Route::get('/login',[\App\Http\Controllers\AuthController::class,'index']);
+Route::post('/login',[\App\Http\Controllers\AuthController::class,'login'])->name('login');
+
+
+
 Route::group(['prefix' => 'admin',
-//'middleware' =>'admin'
+'middleware' => 'admin'
 ], function () {
    Route::get('/', [\App\Http\Controllers\AdminController::class,'index'])->name('admin.index');
    Route::resource('/tag', \App\Http\Controllers\TagController::class);
    Route::resource('/category', \App\Http\Controllers\CategoryController::class);
    Route::resource('/post', \App\Http\Controllers\PostController::class);
-
 });

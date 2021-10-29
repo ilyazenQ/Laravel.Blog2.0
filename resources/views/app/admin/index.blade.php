@@ -42,7 +42,13 @@
                   @method('DELETE')
                   <button type="submit" class="btn btn-outline-danger">X</button>
                 </form>
-                  <button type="button" class="btn btn-outline-success">П</button>
+                  <button type="button" class="btn
+                  @if($article->isProduction()) 
+                  btn-success
+                  @else
+                  btn-danger
+                  @endif  
+                   ">П</button>
                </td>
              </tr>
              @endforeach
