@@ -23,16 +23,26 @@ class ArticleController extends Controller
         $recommendArticles = $recommendArticles->findRecommend(3); 
         return view('app.article.show',compact('article','recommendArticles'));
     }
-    public function allByTag(Tag $tag) {
-        $articles = $tag->articles()->findByTag();
-        $searchingTagLabel = $tag->label;
+   // public function allByTag(Tag $tag) {
+   //     $articles = $tag->articles()->findByTag();
+   //     $searchingTagLabel = $tag->label;
+   //     return view('app.article.byTag',compact('articles','searchingTagLabel'));
+   // }
+    public function allByTag($slug) {
+        $articles = Article::findByTag($slug);
+        $searchingTagLabel = Tag::where('slug',$slug)->firstOrFail()->label;
         return view('app.article.byTag',compact('articles','searchingTagLabel'));
     }
-    public function allByCategory(Category $category) {
-        $articles = $category->articles()->findByCategory();
-        $searchingCategoryLabel = $category->label;
-        return view('app.article.byCategory',compact('articles','searchingCategoryLabel'));
-    }
+  //  public function allByCategory(Category $category) {
+   //     $articles = $category->articles()->findByCategory();
+   //    $searchingCategoryLabel = $category->label;
+  //      return view('app.article.byCategory',compact('articles','searchingCategoryLabel'));
+ //}
+   public function allByCategory($slug) {
+     $articles = Article::findByCategory($slug);
+     $searchingCategoryLabel = Category::where('slug',$slug)->firstOrFail()->label;
+     return view('app.article.byCategory',compact('articles','searchingCategoryLabel'));
+   }
 
     
 }

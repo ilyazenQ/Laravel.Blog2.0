@@ -59,18 +59,36 @@ class Article extends Model
         ->orderBy('created_at','desc')
         ->paginate($numbers);
     }
-    public function scopeFindByTag($query) {
-        return $query->with('tags','categories','state')
-        ->where('status',1)
-        ->orderBy('created_at','desc')
-        ->paginate(10);
-    }
-    public function scopeFindByCategory($query) {
-        return $query->with('tags','categories','state')
-        ->where('status',1)
-        ->orderBy('created_at','desc')
-        ->paginate(10);
-    }
+    //public function scopeFindByTag($query) {
+     //   return $query->with('tags','categories','state')
+    //    ->where('status',1)
+     //   ->orderBy('created_at','desc')
+     //   ->paginate(10);
+   // }
+   //public function scopeFindByCategory($query) {
+    //   return $query->with('tags','categories','state')
+    //   ->where('status',1)
+    //    ->orderBy('created_at','desc')
+    //    ->paginate(10);
+   // }
+  public static function findByCategory($slug) {
+    $category = Category::where('slug',$slug)->firstOrFail();
+    $articles = $category->
+    articles()->
+    with('tags','categories','state')->
+    where('status',1)->
+    paginate(10);
+   return $articles;
+   }
+   public static function findByTag($slug) {
+    $tag = Tag::where('slug',$slug)->firstOrFail();
+    $articles = $tag->
+    articles()->
+    with('tags','categories','state')->
+    where('status',1)->
+    paginate(10);
+   return $articles;
+   }
     public function scopeFindBySlug($query,$slug) {
         return $query->with('tags','categories','state')
         ->where('slug',$slug)

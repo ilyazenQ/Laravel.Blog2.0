@@ -85,7 +85,7 @@
      <ul class="nav me-auto">
 		@foreach($allCategories as $category)
        <li class="nav-item">
-			 <a href="{{route('article.category',$category->id)}}" class="nav-link  px-2 
+			 <a href="{{route('article.category',$category->slug)}}" class="nav-link  px-2 
 				@if(isSearchingCategory())
 					{{activeCategoryLink($searchingCategoryLabel, $category->label)}}
 				@endif

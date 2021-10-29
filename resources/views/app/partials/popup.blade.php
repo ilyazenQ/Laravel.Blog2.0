@@ -17,7 +17,7 @@
             @foreach($allCategories as $category)
           <!--  <li class="nav-item"><a href="#" class="nav-link px-2 main-category-link"> Лечение & профилактика:</a></li>-->
              <li class="nav-item">
-              <a href="{{route('article.category',$category->id)}}" class="nav-link  px-2
+              <a href="{{route('article.category',$category->slug)}}" class="nav-link  px-2
                 @if(isSearchingCategory())
 					        {{activeCategoryLink($searchingCategoryLabel, $category->label)}}
 			        	@endif

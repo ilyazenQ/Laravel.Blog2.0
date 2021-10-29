@@ -16,7 +16,7 @@
                     
                  <div class="card-body"> 
                   @foreach ($article->categories as $category)
-                    <a href="{{route('article.category',$category->id)}}" 
+                    <a href="{{route('article.category',$category->slug)}}" 
                      class="text-uppercase text-danger fw-bold fs-6 article-category-link">
                      {{$category->label}}
                   </a>
@@ -28,7 +28,7 @@
                      <a href="#" class="text-dark btn btn-outline-info btn-lg">Читать</a>
                      <div class="mt-4 about d-flex justify-content-between align-items-center"> 
                         @foreach ($article->tags as $tag)
-                        <a href="{{route('article.tag',$tag->id)}}"  class="text-primary fw-bold fs-6">
+                        <a href="{{route('article.tag',$tag->slug)}}"  class="text-primary fw-bold fs-6">
                            <span>{{$tag->label}}</span>
                         </a> 
                         @endforeach

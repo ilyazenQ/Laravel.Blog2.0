@@ -22,13 +22,13 @@
  
          <p class="blog-post-meta">{{cratedAtWithoutHours($article->created_at)}}<br>
             @foreach($article->categories as $category)
-            <a href="{{ route('article.category',$category->id)}}">{{$category->label}}</a>
+            <a href="{{ route('article.category',$category->slug)}}">{{$category->label}}</a>
             @endforeach
          </p>
          <div class="tagcloud06">
            <ul>
               @foreach($article->tags as $tag)
-              <li><a href="{{ route('article.tag',$tag->id)}}"><span>{{$tag->label}}</span></a></li>
+              <li><a href="{{ route('article.tag',$tag->slug)}}"><span>{{$tag->label}}</span></a></li>
               @endforeach
               
              

@@ -22,10 +22,14 @@ class AuthController extends Controller
         if(Auth::attempt($credentials))
     	{
             $request->session()->regenerate();
-    		return redirect()->route('admin.index');;
+    		return redirect()->route('admin.index');
     	}
        // dd($request->all());
         abort(404);
     }
-    
+    public function logout()
+    {
+    	Auth::logout();
+    	return redirect()->route('home');
+    }
 }
