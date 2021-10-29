@@ -42,41 +42,24 @@
  
      <div class="col-md-4">
        <div class="position-sticky" style="top: 2rem;">
+        @foreach($recommendArticles as $recArticle)
          <div class="p-4 mb-1 bg-light rounded">
            <div class="col">
              <div class="card">
                <div class="card-body">
-                 <h5 class="card-title">Здоровая спина</h5>
-                 <p class="card-text">Using a series of utilities, you can create this jumbotron, just like the one in previous versions of Bootstrap. Check out the examples below for how you can remix and restyle it to your liking..</p>
-                 <a href="#" class="btn btn-primary">Читать</a>
-               </div>
-             </div>
-           </div>
-         </div>
+                 <h5 class="card-title">{{ $recArticle->title }}</h5>
+                 <p class="card-text">
+                  {{ $recArticle->preview }}
 
-         <div class="p-4 mb-1 bg-light rounded">
-           <div class="col">
-             <div class="card">
-               <div class="card-body">
-                 <h5 class="card-title">Здоровая спина</h5>
-                 <p class="card-text">Using a series of utilities, you can create this jumbotron, just like the one in previous versions of Bootstrap. Check out the examples below for how you can remix and restyle it to your liking..</p>
-                 <a href="#" class="btn btn-primary">Читать</a>
+                 </p>
+                 <a href="{{ route('article.show',$recArticle->slug) }}" class="btn btn-primary">Читать</a>
                </div>
              </div>
            </div>
          </div>
+         @endforeach
 
-         <div class="p-4 mb-1 bg-light rounded">
-           <div class="col">
-             <div class="card">
-               <div class="card-body">
-                 <h5 class="card-title">Здоровая спина</h5>
-                 <p class="card-text">Using a series of utilities, you can create this jumbotron, just like the one in previous versions of Bootstrap. Check out the examples below for how you can remix and restyle it to your liking..</p>
-                 <a href="#" class="btn btn-primary">Читать</a>
-               </div>
-             </div>
-           </div>
-         </div>
+         
  
          
  

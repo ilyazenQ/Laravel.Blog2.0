@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Support\Facades\DB;
 
 class Article extends Model
 {
@@ -72,6 +73,15 @@ class Article extends Model
         ->where('title','like',"%{$search}%")
         ->paginate(10);
     }
+    public function findRecommend($num) {
+        return DB::table('articles')
+        ->join('states','articles.id','=','states.article_id')
+       ->where('recommend','=',1)
+        ->select('articles.title', 'articles.id', 'articles.preview','articles.slug')
+       ->take($num)
+       ->get();
+    }
+ 
     public function isProduction() {
         return $this->state->production === 1? true:false;
     }
@@ -200,9 +210,6 @@ class Article extends Model
     }
     public static function add($fields) {
         $article = new Article;
-        $state = new State;
-        $tag = new Tag;
-        $categories = new Category;
         $article->fill($fields);
         $article->save();
         //dd($article->id);

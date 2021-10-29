@@ -20,6 +20,7 @@ class CreateArticlesTable extends Migration
             $table->text('preview');
             $table->text('body');
             $table->text('img')->nullable();
+            $table->boolean('status')->default(true);
             $table->timestamps(); // два поля created_at updated_at время создания/изменения
         });
     }
