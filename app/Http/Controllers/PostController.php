@@ -39,6 +39,12 @@ class PostController extends Controller
         $article = Article::add($request->all());
         $article->setNewTags($request->get('tags'));
         $article->setNewCategories($request->get('categories'));
+        $article->generateNewSeo();
+        $article->setSeo([
+            'seo_title'=>$request->get('seo_title'),
+            'seo_keywords'=>$request->get('seo_keywords'),
+            'seo_description'=>$request->get('seo_description')
+        ]);
         $article->generateNewState();
         $article->setProductionState($request->get('production'));
         $article->setRecommendState($request->get('recommend'));
@@ -83,6 +89,11 @@ class PostController extends Controller
         $article->edit($request->all());
         $article->setProductionState($request->get('production'));
         $article->setRecommendState($request->get('recommend'));
+        $article->setSeo([
+            'seo_title'=>$request->get('seo_title'),
+            'seo_keywords'=>$request->get('seo_keywords'),
+            'seo_description'=>$request->get('seo_description')
+        ]);
         $article->uploadImage($request->file('img'));
         $article->setTags($request->get('tags'));
         $article->setCategories($request->get('categories'));

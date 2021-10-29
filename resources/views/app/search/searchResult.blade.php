@@ -1,4 +1,9 @@
 @extends('layouts.app')
+@section('seo')
+<title>Название</title>
+<meta name="keywords" content="КейВорд">
+<meta name="description" content="Описание">
+@endsection
 @section('content')
 <main class="contatiner">
    <section class="category-main-header container">

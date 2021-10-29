@@ -69,6 +69,34 @@
                   {{$article->body}}
                   </textarea>
                 </div>
+
+                <div>
+                  <label for="body"  class="form-label">Keywords</label>
+                  <textarea rows="3" name="seo_keywords"
+                  class="form-control">
+                  @if(!is_null($article->seo->keywords))
+                  {{$article->seo->keywords}}
+                  @endif
+                  </textarea>
+                </div>
+                <div>
+                  <label for="body"  class="form-label">Description</label>
+                  <textarea rows="3" name="seo_description"
+                  class="form-control">
+                  @if(!is_null($article->seo->description))
+                  {{$article->seo->description}}
+                  @endif
+                  </textarea>
+                </div>
+                <div>
+                  <label for="body"  class="form-label">Title</label>
+                  <textarea rows="3" name="seo_title"
+                  class="form-control">
+                  @if(!is_null($article->seo->title))
+                  {{$article->seo->title}}
+                  @endif
+                  </textarea>
+                </div>
      
                </div>
                

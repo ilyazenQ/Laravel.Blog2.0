@@ -68,6 +68,28 @@
                   
                   </textarea>
                 </div>
+
+                <div>
+                  <label for="body"  class="form-label">Keywords</label>
+                  <textarea rows="3" name="seo_keywords"
+                  class="form-control">
+                  
+                  </textarea>
+                </div>
+                <div>
+                  <label for="body"  class="form-label">Description</label>
+                  <textarea rows="3" name="seo_description"
+                  class="form-control">
+                  
+                  </textarea>
+                </div>
+                <div>
+                  <label for="body"  class="form-label">Title</label>
+                  <textarea rows="3" name="seo_title"
+                  class="form-control">
+                 
+                  </textarea>
+                </div>
      
                </div>
                

@@ -27,6 +27,9 @@ class Article extends Model
         return $this->hasOne(State::class);
         // Имеет одно состояние
     }
+    public function seo() {
+        return $this->hasOne(Seo::class);
+    }
     public function tags() {
         return $this->belongsToMany(
             Tag::class
@@ -108,6 +111,26 @@ class Article extends Model
         ->select('articles.title', 'articles.id', 'articles.preview','articles.slug')
        ->take($num)
        ->get();
+    }
+
+    public function generateNewSeo() {
+        $seo = new Seo([
+            'keywords' => "empty",
+            'description' => "empty",
+            'title' => "empty",
+            'article_id' => $this->id,
+        ]);
+        $seo->save();
+    }
+    
+    public function setSeo($fields) {
+        $this->seo->update([
+            'title' => $fields['seo_title'],
+            'keywords' => $fields['seo_keywords'],
+            'description' => $fields['seo_description'],
+            'article_id' => $this->id,
+        ]);
+        $this->save();
     }
  
     public function isProduction() {
