@@ -1,13 +1,12 @@
 @extends('layouts.app')
 @section('seo')
-<title>Название</title>
-<meta name="keywords" content="КейВорд">
-<meta name="description" content="Описание">
+<title>{{$seo->title}}</title>
+<meta name="keywords" content="{{$seo->keywords}}">
+<meta name="description" content="{{$seo->description}}">
 @endsection
 @section('content')
 <main class="container">
-      
-    
+
    <div class="p-5  bg-light rounded-3 card-cover" 
    style="background-image: url('{{ asset($article->img) }}');">
      <div class="container-fluid py-2 text-white text-shadow-1">
@@ -17,8 +16,7 @@
       </p>
      </div>
    </div>
-   
-  
+
    <div class="row g-5">
      <div class="col-md-8">
        
@@ -73,6 +71,7 @@
            <ol class="list-unstyled">
              <div class="d-flex justify-content-center flex-row">
                <a href="#" class="py-2"><img src="/img/instagram.svg" class="hero-icon mx-2" alt="instagramm" width="60px"></a>
+               <a href="#" class="py-2"><img src="/img/telegram.svg" class="hero-icon mx-2" alt="telegram" width="60px"></a>
                <button class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="/img/mail.svg" class="hero-icon mx-2" alt="Mail" width="65px"></button>
              </div>
            </ol>

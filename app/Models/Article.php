@@ -103,7 +103,7 @@ class Article extends Model
         ->where('status',1)
         ->paginate(10);
     }
-    public function findRecommend($num) {
+    public static function findRecommend($num) {
         return DB::table('articles')
         ->join('states','articles.id','=','states.article_id')
        ->where('recommend','=',1)

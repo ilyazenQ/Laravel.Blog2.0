@@ -19,9 +19,9 @@ class ArticleController extends Controller
     }
     public function show($slug) {
         $article = Article::findBySlug($slug);
-        $recommendArticles = new Article;
-        $recommendArticles = $recommendArticles->findRecommend(3); 
-        return view('app.article.show',compact('article','recommendArticles'));
+        $seo = $article->seo;
+        $recommendArticles = Article::findRecommend(3);
+        return view('app.article.show',compact('article','recommendArticles','seo'));
     }
    // public function allByTag(Tag $tag) {
    //     $articles = $tag->articles()->findByTag();

@@ -26,6 +26,7 @@ Route::get('/login',[\App\Http\Controllers\AuthController::class,'index']);
 Route::post('/login',[\App\Http\Controllers\AuthController::class,'login'])->name('login');
 Route::get('/logout',[\App\Http\Controllers\AuthController::class,'logout'])->name('logout');
 
+Route::post('/sub',[\App\Http\Controllers\UserController::class,'sub'])->name('sub');
 
 Route::group(['prefix' => 'admin',
 'middleware' => 'admin'
@@ -34,5 +35,4 @@ Route::group(['prefix' => 'admin',
    Route::resource('/tag', \App\Http\Controllers\TagController::class);
    Route::resource('/category', \App\Http\Controllers\CategoryController::class);
    Route::resource('/post', \App\Http\Controllers\PostController::class);
-   
 });

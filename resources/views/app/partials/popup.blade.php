@@ -46,12 +46,13 @@
          <h5 class="modal-title" id="exampleModalLabel">Спасибо за подписку!</h5>
          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
        </div>
-       <form>
-       <div class="modal-body">
+       <form method="POST" action="{{ route('sub') }}">
+        @csrf
+        <div class="modal-body">
          
            <div class="mb-3">
              <label for="exampleInputEmail1" class="form-label">Email</label>
-             <input type="email" class="form-control" id="exampleInputEmail1" required>
+             <input type="email" name="email" class="form-control" id="exampleInputEmail1" required>
            </div>
          
        </div>
