@@ -249,10 +249,12 @@ class Article extends Model
        //$this->removeImage();
         //dd($image->hashName());
     
-       // $filename = $image->hashName();
-        $path = $image->store('uploads','public');
+        $filename = $image->hashName();
+       // $path = $image->store('uploads','public');
+       $image->move(public_path('uploads'),$filename);
         //dd($path);
-        $this->img = 'storage/'.$path;
+        //$this->img = 'storage/'.$path;
+        $this->img = 'uploads/'.$filename;
         $this->save();
     }
     public function removeImage() {
