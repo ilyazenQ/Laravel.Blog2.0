@@ -230,6 +230,10 @@ class Article extends Model
         $this->state->update(['recommend' => 1]);
         $this->save();
     }
+    public function incrementViews() {
+        $this->state->increment('views');
+        $this->save();
+    }
     public function setRecommendState($field) {
         if(is_null($field)) {
             $this->setNormal();

@@ -1,8 +1,9 @@
 @extends('layouts.app')
 @section('seo')
-<title>Название</title>
-<meta name="keywords" content="КейВорд">
-<meta name="description" content="Описание">
+<title>Здоровье и Лекарства - полезный блог о здоровье</title>
+<meta name="keywords" content="медицина, здоровье, интересные, полезные, статьи, человек, лекарства, профилактика, заболевания, лечение">
+<meta name="description" content="Статьи блога Здоровье и лекарства, полезные материалы 
+по теме здоровья, лечения, профилактики, лекарств и здоровому образу жизни.">
 @endsection
 @section('content')
 <main class="contatiner">

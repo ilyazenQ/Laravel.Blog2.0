@@ -19,6 +19,7 @@ class ArticleController extends Controller
     }
     public function show($slug) {
         $article = Article::findBySlug($slug);
+        $article->incrementViews();
         $seo = $article->seo;
         $recommendArticles = Article::findRecommend(3);
         return view('app.article.show',compact('article','recommendArticles','seo'));

@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('seo')
-<title>Название</title>
-<meta name="keywords" content="КейВорд">
-<meta name="description" content="Описание">
+<title>Результат поиска статей по сайту Здоровье и Лекарства</title>
+<meta name="keywords" content="медицина, здоровье, интересные, полезные, статьи, человек, лекарства, профилактика, заболевания, лечение, зож">
+<meta name="description" content="Поиск статей о здоровье, лекарствах, фармацевтики, упражнениях">
 @endsection
 @section('content')
 <main class="contatiner">
@@ -13,7 +13,7 @@
       <div class="tagcloud06">
          <ul>
       @foreach($allTags as $tag)
-            <li><a href="{{route('article.tag',$tag->id)}}">
+            <li><a href="{{route('article.tag',$tag->slug)}}">
                <span>{{ $tag->label}}</span>
             </a></li>
       @endforeach
